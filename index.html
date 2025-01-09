@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Impact Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="/static/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <h1>Menu</h1>
+            <ul>
+                <li onclick="displaySection('dashboard')">Dashboard</li>
+                <li onclick="displaySection('home')">Home</li>
+                <li onclick="displaySection('calculation')">Calculation</li>
+                <li onclick="displaySection('recommendations')">Recommendations</li>
+                <li onclick="displaySection('insights')">Insights</li>
+                <li onclick="displaySection('profile')">Profile</li>
+                <li onclick="displaySection('settings')">Settings</li>
+                <li onclick="displaySection('help')">Help</li>
+            </ul>
+        </div>
+
+        <!-- Right Content Section -->
+        <div class="content">
+            <section id="dashboard" class="section">
+                <h2 style="text-align:center;color:red;">Dashboard</h2>
+                <p style="font-size:20px;text-align:center;">Overview of your environmental impact metrics at a glance.</p>
+                 <div class="main-content">
+            <h1>Carbon Footprint Overview</h1>
+            <div class="overview">
+                <div class="overview-card">
+                    <h2>Total Carbon Footprint</h2>
+                    <p id="total-footprint"> </p>
+                </div>
+                <div class="overview-card">
+                    <p>
+                    <span id="changeValue" style="color:green;">-50 kg CO₂</span>
+                    </p>
+                </div>
+                <div class="overview-card">
+                    <h2>Eco-friendly Actions</h2>
+                    <p><span id="eco-actions">8</span> Completed</p>
+                </div>
+            </div>
+
+            <!-- Carbon Footprint Trend Chart -->
+            <div class="chart-section">
+                <h2>Carbon Footprint Over Time</h2>
+                <div id="trendChart"></div>
+            </div>
+
+            <!-- Top Protocols Section -->
+            <div class="top-protocols">
+                <h2>Usage Distribution</h2>
+                <div id="protocolChart"></div>
+            </div>
+        </div>
+            </section>
+
+            <section id="home" class="section" style="display: none;">
+                <h2 style="text-align:center;color:red;">Home</h2>
+                <p style="text-align:center;font-size:20px">Welcome to the Green Impact Dashboard! Select an option from the menu to get started.</p>
+                <br><br>
+                <img src="https://discovertemplate.com/wp-content/uploads/2020/10/DT_G41_Ecology-and-Environment-Animated-GIF-Icon-pack.gif" style="height:50%">
+                <br><br>
+                <div class="benefits">
+        <h2>Benefits of Using Our Dashboard</h2>
+        <div class="benefit-item">
+            <h4>💡 Educational Insights</h4>
+            <p style="font-size:18px;">Gain a deeper understanding of your carbon footprint and how different activities impact the environment.</p>
+        </div>
+        <div class="benefit-item">
+            <h4>🌍 Personalized Recommendations</h4>
+            <p style="font-size:18px;">Receive tailored suggestions to help you make eco-friendly choices based on your unique lifestyle.</p>
+        </div>
+        <div class="benefit-item">
+            <h4>📈 Progress Tracking</h4>
+            <p style="font-size:18px;">Track your improvements over time, helping you stay motivated and see the positive impact of your efforts.</p>
+        </div>
+        <div class="benefit-item">
+            <h4>🎯 Goal Setting & Achievements</h4>
+            <p style="font-size:18px;">Set sustainability goals and earn achievements for milestones, making your journey fun and rewarding.</p>
+        </div>
+        <div class="benefit-item">
+            <h4>📊 Interactive Visualizations</h4>
+            <p style="font-size:18px;">View interactive charts and graphs that make it easy to visualize trends and understand your data.</p>
+        </div>
+        <div class="benefit-item">
+            <h4>📋 Simple, Data-Driven Decisions</h4>
+            <p style="font-size:18px;">Make smarter decisions with data-driven insights to lead a more sustainable and eco-friendly lifestyle.</p>
+        </div>
+    </div>
+
+            </section>
+
+            <section id="calculation" class="section" style="display: none;">
+             <center>   <h1 style="color:red;">GreenImpact Calculation Dashboard</h1></center>
+               <div class="container1">
+        <form id="impactForm" >
+             <label for="transport">Transportation Mode:</label>
+            <select id="transport">
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="public">Public Transport</option>
+            </select>
+            <label>Distance Traveled per Day (km):</label>
+            <input type="number" id="distance" required>
+
+            <label>Monthly Electricity Usage (kWh):</label>
+            <input type="number" id="energy" required>
+
+            <label>Meat Consumption per Week:</label>
+            <input type="number" id="food" required>
+            <label for="heating">Home Heating Source:</label>
+            <select id="heating">
+            <option value="gas">Gas</option>
+            <option value="electric">Electric</option>
+            <option value="solar">Solar</option>
+            <option value="other">Other</option>
+            </select>
+             <label for="water">Daily water usage (liters):</label>
+            <input type="number" id="water" name="water" min="0" placeholder="e.g., 150" required />
+
+            <label for="waste">Waste generated per week (kg):</label>
+            <input type="number" id="waste" name="waste" min="0" placeholder="e.g., 7" required />
+
+            <label for="waste_management">Waste management method:</label>
+            <select id="waste_management">
+            <option value="recycling">Recycling</option>
+            <option value="composting">Composting</option>
+            <option value="landfill">Landfill</option>
+            </select>
+            <label>Flights per Year:</label>
+            <input type="number" id="flights" required>
+            <label for="household">Household Size:</label>
+            <input type="number" id="household" min="0" name="household" placeholder="e.g., 4" required />
+
+            <label for="dairy">Dairy consumption (times per week):</label>
+            <input type="number" id="dairy" min="0" name="dairy" placeholder="e.g., 3" required />
+
+            <label for="fish">Fish consumption (times per week):</label>
+            <input type="number" id="fish" min="0" name="fish" placeholder="e.g., 2" required />
+
+            <label for="plant_based">Plant-based meals (times per week):</label>
+            <input type="number" id="plant_based" min="0" name="plant_based" placeholder="e.g., 5" required />
+
+            <label for="shopping">Do you prefer eco-friendly products?</label>
+            <select id="shopping">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            <button type="button" onclick="calculateImpact()">Calculate Impact</button>
+            <h2>Estimated Carbon Footprint:</h2>
+            <p id="carbonOutput">-- kg CO₂</p>
+        </form>
+<br><br>
+    </div>
+            </section>
+
+            <section id="recommendations" class="section" style="display: none;">
+                  <h2 style="text-align:center;color:green;">Personalized Recommendations</h2>
+                      <div id="recommendations-container" class="recommendations-container">
+        <!-- Dynamic recommendation cards will be added here -->
+                      </div>
+            </section>
+
+            <section id="insights" class="section" style="display: none;">
+                <h2>Insights</h2>
+                <p>Visualize your progress over time and track improvements.</p>
+               <img src="/plot/carbon_footprint" alt="Matplotlib Carbon Footprint Plot">
+                <h2>Plotly Carbon Footprint Plot</h2>
+                <div id="plotlyChart">
+
+                </div>
+                <!-- Insights and analytics content here -->
+            </section>
+
+            <section id="profile" class="section" style="display: none;">
+               <center> <div class="profile-card">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/013/042/571/small_2x/default-avatar-profile-icon-social-media-user-photo-in-flat-style-vector.jpg" alt="Profile Picture" class="profile-pic">
+        <h2>My Profile</h2>
+          <form>
+          <div id="profile1">
+          <p style="font-size:25px"><strong>Username:</strong> <span id="profileUsername"></span></p>
+          <p style="font-size:25px"><strong>Email:</strong> <span id="profileEmail"></span></p>
+         </div><br><br>
+              <p style="font-size:25px"> Phone Number :</p> <input type="tel" name = "phone" id="phone">
+          </form><br><br>
+        <button class="save-btn">Save</button>
+    </div></center>
+            </section>
+
+            <section id="settings" class="section" style="display: none;">
+                <h2>Settings</h2>
+                <p>Configure your preferences and account settings.</p>
+                <div class="settings-category">
+        <h3>Account Settings</h3>
+        <button>Edit Profile</button>
+        <button>Change Password</button>
+        <button class="danger">Delete Account</button>
+    </div>
+
+    <!-- Preferences -->
+    <div class="settings-category">
+        <h3>Preferences</h3>
+        <label for="theme">Theme:</label>
+        <select id="theme">
+            <option>Light</option>
+            <option>Dark</option>
+            <option>System Default</option>
+        </select>
+
+        <label for="language">Language:</label>
+        <select id="language">
+            <option>English</option>
+            <!-- Additional languages here -->
+        </select>
+
+        <label for="units">Units:</label>
+        <select id="units">
+            <option>Miles / Pounds</option>
+            <option>Kilometers / Kilograms</option>
+        </select>
+    </div>
+
+    <!-- Notification Settings -->
+    <div class="settings-category">
+        <h3>Notification Settings</h3>
+        <label><input type="checkbox"> Email Notifications</label>
+        <label><input type="checkbox"> App Notifications</label>
+        <label><input type="checkbox"> Weekly Reports</label>
+    </div>
+
+    <!-- Data Management -->
+    <div class="settings-category">
+        <h3>Data Management</h3>
+        <button>Export Data</button>
+        <button class="danger">Clear Data</button>
+    </div>
+
+    <!-- Privacy and Security -->
+    <div class="settings-category">
+        <h3>Privacy and Security</h3>
+        <button>Enable Two-Factor Authentication</button>
+        <button>Data Privacy Options</button>
+    </div>
+
+    <!-- Support and Feedback -->
+    <div class="settings-category">
+        <h3>Support and Feedback</h3>
+        <button>Help Center</button>
+        <button>Contact Support</button>
+        <button>Submit Feedback</button>
+    </div>
+            </section>
+
+            <section id="help" class="section" style="display: none;">
+                <h2>Help</h2>
+                <p>Find answers to common questions or contact support.</p>
+                <div class="help-category">
+        <h3>Getting Started</h3>
+        <p>Welcome to the GreenImpact Dashboard! This tool helps you track your carbon footprint and make eco-friendly choices.</p>
+        <p>To get started, explore each section of the dashboard, input your environmental data, and view the insights provided.</p>
+    </div>
+
+    <!-- FAQs -->
+    <div class="help-category">
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><strong>How is my carbon footprint calculated?</strong> The footprint is calculated based on your inputs in categories like transportation, energy, and food consumption.</li>
+            <li><strong>Can I edit or delete my data?</strong> Yes, you can edit or delete entries in the settings section under Data Management.</li>
+            <li><strong>How do I export my data?</strong> Go to Settings > Data Management and select "Export Data."</li>
+        </ul>
+    </div>
+
+    <!-- Feature Explanations -->
+    <div class="help-category">
+        <h3>Feature Explanations</h3>
+        <p>Learn about the different features of the dashboard:</p>
+        <ul>
+            <li><strong>Carbon Footprint Tracking</strong>: Track your environmental impact through data input.</li>
+            <li><strong>Insights and Visualizations</strong>: View monthly trends and data insights on your footprint.</li>
+            <li><strong>Recommendations</strong>: Get tailored suggestions to reduce your environmental impact.</li>
+        </ul>
+    </div>
+
+    <!-- Technical Support -->
+    <div class="help-category">
+        <h3>Technical Support</h3>
+        <p>If you're facing issues, here are some quick solutions:</p>
+        <ul>
+            <li><strong>Loading Issues</strong>: Try refreshing the page or clearing your browser cache.</li>
+            <li><strong>Data Input Errors</strong>: Ensure that all required fields are filled correctly.</li>
+        </ul>
+        <p>For further assistance, <a href="mailto:support@greenimpact.com">contact our support team</a>.</p>
+    </div>
+
+    <!-- User Guides and Tutorials -->
+    <div class="help-category">
+        <h3>User Guides and Tutorials</h3>
+        <p>Watch our <a href="#tutorials">video tutorials</a> or download the <a href="#user-manual">user manual</a> for in-depth guidance.</p>
+    </div>
+
+    <!-- Privacy and Security -->
+    <div class="help-category">
+        <h3>Privacy and Security</h3>
+        <p>Your data privacy is important to us. All data is stored securely, and we don’t share it with third parties without your consent.</p>
+    </div>
+
+    <!-- Feedback and Suggestions -->
+    <div class="help-category">
+        <h3>Feedback and Suggestions</h3>
+        <p>We’d love to hear your thoughts! <a href="#feedback-form">Submit feedback</a> or suggest new features to improve your experience.</p>
+    </div>
+            </section>
+        </div>
+    </div>
+</body>
+<script>
+    const profileUsername = localStorage.getItem('username');
+const profileEmail = localStorage.getItem('email');
+document.getElementById('profileUsername').innerText = profileUsername;
+document.getElementById('profileEmail').innerText = profileEmail;
+function renderPlotlyChart() {
+    fetch('/plot/plotly_carbon_footprint')
+        .then(response => response.json())
+        .then(data => {
+            Plotly.newPlot('plotlyChart', data.data, data.layout);
+        })
+        .catch(error => console.error("Error fetching Plotly data:", error));
+}
+
+function displaySection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+
+    // Render Plotly chart when Insights section is displayed
+    if (sectionId === 'insights') {
+        renderPlotlyChart();
+    }
+}
+     function renderCharts() {
+    const months = ["Jan", "Feb", "Mar", "Apr"];
+    const carbonData = [120, 110, 130, 115];
+
+    // Line Chart for Carbon Footprint Trend
+    const trendChart = {
+        x: months,
+        y: carbonData,
+        type: 'scatter',
+        mode: 'lines+markers',
+        marker: { color: 'green' }
+    };
+    Plotly.newPlot('trendChart', [trendChart], {
+        title: 'Monthly Carbon Footprint',
+        xaxis: { title: 'Months' },
+        yaxis: { title: 'Footprint (kg CO₂)' }
+    });
+
+    // Donut Chart for Usage Distribution
+    const protocolChart = {
+        labels: ["Transport", "Energy", "Food", "Other"],
+        values: [45, 30, 15, 10],
+        type: 'pie',
+        hole: .4,
+    };
+    Plotly.newPlot('protocolChart', [protocolChart], {
+        title: 'Usage Distribution'
+    });
+}
+
+window.onload = function() {
+    renderCharts(); // Call the function to render the charts on load
+};
+
+const monthlyChange = -50; // Example value
+const changeElement = document.getElementById('changeValue');
+
+if (monthlyChange < 0) {
+    changeElement.style.color = "green";
+    changeElement.innerText = `${monthlyChange} kg CO₂ (Decrease)`;
+} else {
+    changeElement.style.color = "red";
+    changeElement.innerText = `+${monthlyChange} kg CO₂ (Increase)`;
+}
+// Frontend - Display Carbon Footprint Overview
+document.getElementById('total-footprint').textContent =`834.91 CO2 kg`;
+function generateRecommendations() {
+    const recommendations = [];
+
+    // Example recommendations logic
+    const transport = document.getElementById('transport').value;
+    const distance = parseFloat(document.getElementById('distance').value) || 0;
+    const energy = parseFloat(document.getElementById('energy').value) || 0;
+    const food = parseFloat(document.getElementById('food').value) || 0;
+    const waste = parseFloat(document.getElementById('waste').value) || 0;
+
+    if (transport === 'car' && distance > 10) {
+        recommendations.push({
+            title: "Switch to Public Transport",
+            icon: "https://cdn-icons-png.flaticon.com/512/3448/3448961.png",
+            description: "Using public transport can reduce your emissions significantly!"
+        });
+    }
+
+    if (energy > 100) {
+        recommendations.push({
+            title: "Consider Solar Panels",
+            icon: "https://cdn-icons-png.flaticon.com/512/3064/3064782.png",
+            description: "Switch to solar energy to lower your carbon footprint."
+        });
+    }
+
+    if (food > 4) {
+        recommendations.push({
+            title: "Reduce Meat Consumption",
+            icon: "https://cdn-icons-png.flaticon.com/512/684/684908.png",
+            description: "Try plant-based meals a few times a week to make a big difference."
+        });
+    }
+
+    if (waste > 5) {
+        recommendations.push({
+            title: "Start Composting",
+            icon: "https://cdn-icons-png.flaticon.com/512/1825/1825616.png",
+            description: "Composting can help reduce landfill waste."
+        });
+    }
+
+    displayRecommendations(recommendations);
+}
+
+function displayRecommendations(recommendations) {
+    const container = document.getElementById('recommendations-container');
+    container.innerHTML = ''; // Clear previous recommendations
+
+    if (recommendations.length === 0) {
+        container.innerHTML = "<p>No recommendations at the moment. Keep up the great work!</p>";
+        return;
+    }
+
+    recommendations.forEach(rec => {
+        const card = document.createElement('div');
+        card.className = 'recommendation-card';
+
+        card.innerHTML = `
+            <img src="${rec.icon}" alt="${rec.title}" />
+            <h3>${rec.title}</h3>
+            <p>${rec.description}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function calculateImpact() {
+    // Calculate carbon footprint here
+    // Example: Update the carbon footprint value
+    const carbonOutput = Math.random() * 500;
+    document.getElementById('carbonOutput').innerText = `${carbonOutput.toFixed(2)} kg CO₂`;
+
+    // Generate and display recommendations
+    generateRecommendations();
+}
+
+    </script>
+</html>
