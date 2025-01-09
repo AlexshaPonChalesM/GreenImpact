@@ -1,0 +1,395 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+.container1 {
+    display: flex;
+    align-items:center;
+}
+.sidebar {
+    width: 220px;
+    background-color: #4CAF50;
+    padding: 20px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height : 100vh;
+    position : fixed;
+    top:0;
+    left:0;
+    padding-top: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.main-content h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.overview {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.overview-card {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.overview-card h2 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.overview-card p {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #1e2d3d;
+}
+
+.change-value {
+    color: #4CAF50;
+}
+
+.chart-section, .top-protocols {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+#trendChart, #protocolChart {
+    width: 100%;
+    height: 500px;
+}
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    text-align: center;
+    padding : 40px;
+    font-size : 20px;
+}
+
+.sidebar ul li:hover {
+    background-color: #45a049;
+    border-radius: 5px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Offsets the content to start after the sidebar */
+    overflow-y: auto;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+
+.main-container {
+    display: flex;
+    width: 100%;
+}
+
+#home, #calculation {
+    display: block;
+}
+
+#result {
+    margin-bottom: 20px;
+    float : bottom;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#impactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    align-items:center;
+}
+
+#impactForm label {
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+#impactForm input {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#impactForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#impactForm button:hover {
+    background-color: #45a049;
+}
+label {
+    margin-top: 15px;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.menu {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.menu li {
+    padding: 15px;
+    text-align: center;
+    background-color: #283a4a;
+    margin: 5px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu li:hover {
+    background-color: #3a4e61;
+}
+.benefits {
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.benefits h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.benefit-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.benefit-item h4 {
+    font-size: 1.1em;
+    color: #4CAF50; /* or any color that matches your theme */
+    margin-right: 10px;
+}
+
+.benefit-item p {
+    font-size: 0.95em;
+    color: #555;
+}
+.settings-category {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.settings-category h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.settings-category button {
+    display: block;
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.settings-category button.danger {
+    background-color: #e53935;
+}
+
+.settings-category label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.settings-category select {
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+.help-category {
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.help-category h3 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.help-category p, .help-category ul {
+    font-size: 0.95em;
+    color: #666;
+}
+
+.help-category ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+.profile-card {
+    width: 500px;
+    padding: 60px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height:600px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.save-btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: #ff5a5f;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+    background-color: #ff3035;
+}
+.recommendations-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.recommendation-card {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.recommendation-card h3 {
+    color: #1d8348;
+    margin-bottom: 10px;
+}
+
+.recommendation-card p {
+    font-size: 16px;
+    color: #555;
+}
+
+.recommendation-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+}
